@@ -19,7 +19,3 @@ spring:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
     password: 123456
-
-logging.level:
-  org.springframework.data.redis: TRACE
-  redis.clients: TRACE

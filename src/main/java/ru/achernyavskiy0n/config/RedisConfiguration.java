@@ -10,7 +10,6 @@ import ru.achernyavskiy0n.cache.CustomKeyGenerator;
 
 @EnableCaching
 @Configuration
-@Import({PersistenceConfiguration.class})
 public class RedisConfiguration {
 
     @Bean("redisCacheMsaKeyGenerator")

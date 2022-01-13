@@ -1,0 +1,14 @@
+### addUser
+POST http://localhost:8012/value/
+Content-Type: application/json
+
+{
+  "id": "8",
+  "value": "823456789"
+}
+
+### getById
+GET http://localhost:8013/value/8
+
+### getALL
+GET http://localhost:8013/value/

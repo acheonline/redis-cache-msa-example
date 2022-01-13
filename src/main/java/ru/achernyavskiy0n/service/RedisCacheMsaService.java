@@ -2,6 +2,7 @@ package ru.achernyavskiy0n.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import ru.achernyavskiy0n.model.Numbers;
@@ -10,7 +11,7 @@ import ru.achernyavskiy0n.repository.RedisCacheMsaRepository;
 import java.util.List;
 
 @Service
-@CacheConfig(cacheNames = {"numbers"})
+@CacheConfig(cacheNames = {"numbers"}, keyGenerator = "redisCacheMsaKeyGenerator")
 public class RedisCacheMsaService {
 
     @Autowired
@@ -27,7 +28,7 @@ public class RedisCacheMsaService {
         return simpleRepository.findAll();
     }
 
-    @Cacheable(key="#val.id")
+    @CacheEvict(key="#val.id")
     public Numbers add(Numbers val) {
         return this.simpleRepository.save(val);
     }
